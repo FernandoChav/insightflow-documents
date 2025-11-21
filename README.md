@@ -30,12 +30,3 @@ docker build -t insightflow-documents .
 docker run -p 8080:8080 insightflow-documents
 ---
 
-### Tu Próximo Movimiento (Configuración de Secretos)
-
-Para que el archivo `.yml` funcione y no te de error en GitHub, necesitas configurar las "Secrets" en tu repositorio de GitHub.
-
-1.  Ve a tu repo en GitHub -> **Settings** -> **Secrets and variables** -> **Actions**.
-2.  Agrega estas variables:
-    * `DOCKER_USERNAME`: Tu usuario de Docker Hub.
-    * `DOCKER_PASSWORD`: Tu contraseña (o Access Token) de Docker Hub.
-    * `RENDER_DEPLOY_HOOK`: La URL que te dará Render cuando crees el servicio (esto lo haremos luego, pero tenlo en mente).
