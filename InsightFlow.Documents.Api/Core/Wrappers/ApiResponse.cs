@@ -47,7 +47,7 @@ namespace InsightFlow.Documents.Api.Core.Wrappers
         /// <returns>Una instancia de ApiResponse con éxito.</returns>
         public ApiResponse(T data, string message = null)
         {
-            Succeeded = true;
+            Success = true;
             Message = message;
             Data = data;
         }

@@ -16,5 +16,6 @@ namespace InsightFlow.Documents.Api.Application.Interfaces
         Task<ApiResponse<DocumentResponse>> GetDocumentByIdAsync(string id);
         Task<ApiResponse<DocumentResponse>> UpdateDocumentAsync(string id, UpdateDocumentDto request);
         Task<ApiResponse<bool>> DeleteDocumentAsync(string id);
+        Task<ApiResponse<IEnumerable<DocumentResponse>>> GetDocumentsByWorkspaceAsync(string workspaceId);
     }
 }

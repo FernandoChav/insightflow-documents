@@ -1,3 +1,5 @@
+using InsightFlow.Documents.Api.Application.Interfaces;
+using InsightFlow.Documents.Api.Application.Services;
 using InsightFlow.Documents.Api.Domain.Interfaces;
 using InsightFlow.Documents.Api.Infrastructure.Persistence;
 
@@ -9,7 +11,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<InMemoryDataContext>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
-
+builder.Services.AddScoped<IDocumentService, DocumentService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 

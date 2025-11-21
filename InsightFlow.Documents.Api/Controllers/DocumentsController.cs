@@ -14,7 +14,16 @@ namespace InsightFlow.Documents.Api.Controllers
     public class DocumentsController(IDocumentService service) : ControllerBase
     {
         private readonly IDocumentService _service = service;
-
+        /// <summary>
+        /// Obtiene todos los documentos de un espacio de trabajo específico.
+        /// </summary>
+        [HttpGet("workspace/{workspaceId}")]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<DocumentResponse>>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetByWorkspace(string workspaceId)
+        {
+            var response = await _service.GetDocumentsByWorkspaceAsync(workspaceId);
+            return Ok(response);
+        }
         /// <summary>
         /// Crea un nuevo documento en el espacio de trabajo especificado.
         /// </summary>

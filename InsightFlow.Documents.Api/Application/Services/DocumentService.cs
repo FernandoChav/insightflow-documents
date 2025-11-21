@@ -10,15 +10,23 @@ namespace InsightFlow.Documents.Api.Application.Services
     public class DocumentService(IDocumentRepository repository, IMapper mapper) : IDocumentService
     {
         private readonly IDocumentRepository _repository = repository;
-        private readonly IMapper _mapper = mapper; 
+        private readonly IMapper _mapper = mapper;
+        public async Task<ApiResponse<IEnumerable<DocumentResponse>>> GetDocumentsByWorkspaceAsync(string workspaceId)
+        {
+            var docs = await _repository.GetByWorkspaceIdAsync(workspaceId);
 
+            // Mapeamos la lista de Entidades a DTOs usando AutoMapper
+            var docsDto = _mapper.Map<IEnumerable<DocumentResponse>>(docs);
+
+            return new ApiResponse<IEnumerable<DocumentResponse>>(docsDto);
+        }
         public async Task<ApiResponse<DocumentResponse>> CreateDocumentAsync(CreateDocumentDto request)
         {
             // 1. Mapeo Automático (DTO -> Entity)
             var newDoc = _mapper.Map<Document>(request);
-            
+
             // Lógica adicional que el mapper no debe saber (inicialización de lista)
-            newDoc.Content = new List<Block>(); 
+            newDoc.Content = new List<Block>();
 
             // 2. Persistencia
             await _repository.AddAsync(newDoc);

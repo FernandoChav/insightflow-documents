@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
+using InsightFlow.Documents.Api.Core.Wrappers;
 
 namespace InsightFlow.Documents.Api.Core.Middlewares
 {
@@ -30,7 +33,7 @@ namespace InsightFlow.Documents.Api.Core.Middlewares
             {
                 var response = context.Response;
                 response.ContentType = "application/json";
-                var responseModel = new ApiResponse<string>() { Succeeded = false, Message = error?.Message };
+                var responseModel = new { Succeeded = false, error?.Message };
 
                 response.StatusCode = error switch
                 {
