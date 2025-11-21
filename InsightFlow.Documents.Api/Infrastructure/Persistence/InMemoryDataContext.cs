@@ -21,7 +21,7 @@ namespace InsightFlow.Documents.Api.Infrastructure.Persistence
         /// </summary>
         public InMemoryDataContext()
         {
-            Documents = new List<Document>();
+            Documents = [];
             SeedData();
         }
 
