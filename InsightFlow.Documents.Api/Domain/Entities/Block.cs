@@ -18,7 +18,7 @@ namespace InsightFlow.Documents.Api.Domain.Entities
         /// <summary>
         /// Tipo de bloque (por ejemplo, "paragraph", "header", "image", etc.)
         /// </summary>
-        public string Type { get; set; } 
+        public string Type { get; set; } = string.Empty; 
         
         /// <summary>
         /// Datos asociados al bloque

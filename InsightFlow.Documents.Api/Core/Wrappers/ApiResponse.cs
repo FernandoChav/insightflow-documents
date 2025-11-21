@@ -20,17 +20,17 @@ namespace InsightFlow.Documents.Api.Core.Wrappers
         /// Mensaje descriptivo de la respuesta.
         /// </summary>
         /// <value></value>
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
         /// <summary>
         /// Datos devueltos en la respuesta.
         /// </summary>
         /// <value></value>
-        public T Data { get; set; }
+        public T Data { get; set; } = default!;
         /// <summary>
         /// Lista de errores ocurridos durante la operación.
         /// </summary>
         /// <value></value>
-        public List<string> Errors { get; set; }
+        public List<string> Errors { get; set; } = new List<string>();
 
         /// <summary>
         /// Constructor por defecto.
@@ -45,10 +45,10 @@ namespace InsightFlow.Documents.Api.Core.Wrappers
         /// <param name="data">Datos de la respuesta.</param>
         /// <param name="message">Mensaje opcional.</param>
         /// <returns>Una instancia de ApiResponse con éxito.</returns>
-        public ApiResponse(T data, string message = null)
+        public ApiResponse(T data, string? message = null)
         {
             Success = true;
-            Message = message;
+            Message = message ?? string.Empty;
             Data = data;
         }
         /// <summary>
@@ -57,10 +57,10 @@ namespace InsightFlow.Documents.Api.Core.Wrappers
         /// <param name="message">Mensaje de error.</param>
         /// <param name="errors">Lista de errores detallados.</param>
         /// <returns>Una instancia de ApiResponse con error.</returns>
-        public ApiResponse(string Message, List<string> errors = null)
+        public ApiResponse(string message, List<string>? errors = null)
         {
             Success = false;
-            this.Message = Message;
+            Message = message ?? string.Empty;
             Errors = errors ?? new List<string>();
         }
     }
