@@ -6,9 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
+
 builder.Services.AddSingleton<InMemoryDataContext>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 
@@ -16,6 +18,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 
