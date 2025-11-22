@@ -5,7 +5,15 @@ using InsightFlow.Documents.Api.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()  
+              .AllowAnyMethod()  
+              .AllowAnyHeader(); 
+    });
+}); 
 
 builder.Services.AddControllers();
 
@@ -15,7 +23,7 @@ builder.Services.AddScoped<IDocumentService, DocumentService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
-
+app.UseCors("AllowAll");
 app.UseMiddleware<InsightFlow.Documents.Api.Core.Middlewares.ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
