@@ -22,6 +22,6 @@ COPY --from=build /app/out .
 # Exponemos el puerto que Render espera (generalmente 80 o detectado dinámicamente)
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
-
+ENV DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
 # Comando de inicio
 ENTRYPOINT ["dotnet", "InsightFlow.Documents.Api.dll"]
