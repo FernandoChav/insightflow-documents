@@ -22,7 +22,16 @@ Este servicio sigue los principios de **Clean Architecture** y **SOLID**, estruc
 2. Navegar a la carpeta de la API.
 3. Ejecutar: `dotnet run`
 4. Acceder a Swagger: `http://localhost:XXXX/swagger`
+## 🧪 Cómo probar la API (Validación)
 
+Se ha incluido una colección de **Postman** en la carpeta `/docs` de este repositorio para validar los endpoints CRUD (Create, Read, Update, Delete) directamente contra el servidor en producción.
+
+**Endpoints Principales:**
+* `GET /api/documents?workspaceId={id}`: Listar documentos.
+* `GET /api/documents/{id}`: Obtener detalle completo.
+* `POST /api/documents`: Crear nuevo documento.
+* `PATCH /api/documents/{id}`: Actualizar metadatos y contenido (Bloques).
+* `DELETE /api/documents/{id}`: Eliminar documento.
 ## 🐳 Docker
 
 ```bash

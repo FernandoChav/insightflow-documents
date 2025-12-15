@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "3f46d3ba-2ea4-4ece-a933-7383f26a3766",
+		"name": "Document",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34959422",
+		"_collection_link": "https://a99999-0732.postman.co/workspace/Taller-3~7bf73476-c9ec-4d2e-83a7-f9112587a803/collection/34959422-3f46d3ba-2ea4-4ece-a933-7383f26a3766?action=share&source=collection_link&creator=34959422"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/documents/workspace/ws-seed-001",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"documents",
+						"workspace",
+						"ws-seed-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/documents/71a2a280-c8a8-4f26-908e-70dfeaffa655",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"documents",
+						"71a2a280-c8a8-4f26-908e-70dfeaffa655"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"workspaceId\": \"ws-123\",\r\n  \"userId\": \"user-fer\",\r\n  \"title\": \"Mi Primer Doc via API\",\r\n  \"icon\": \"🧪\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/documents",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Mi Doc Actualizado\",\r\n  \"content\": [\r\n    {\r\n      \"id\": \"block-1\",\r\n      \"type\": \"h1\",\r\n      \"data\": { \"text\": \"Título Grande\" }\r\n    },\r\n    {\r\n      \"id\": \"block-2\",\r\n      \"type\": \"paragraph\",\r\n      \"data\": { \"text\": \"Esto es un párrafo dinámico.\" }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/documents/71a2a280-c8a8-4f26-908e-70dfeaffa655",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"documents",
+						"71a2a280-c8a8-4f26-908e-70dfeaffa655"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/documents/71a2a280-c8a8-4f26-908e-70dfeaffa655",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"documents",
+						"71a2a280-c8a8-4f26-908e-70dfeaffa655"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
